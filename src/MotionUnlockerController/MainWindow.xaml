@@ -1,0 +1,63 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ig="http://schemas.infragistics.com/xaml" x:Class="MotionUnlockerController.MainWindow"
+        Title="MainWindow" Height="493" Width="750"
+        AllowsTransparency="True"
+        ResizeMode="NoResize" Background="Transparent" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown_1" WindowStartupLocation="CenterScreen"
+        >
+    <Grid>
+        <ig:ThemeManager.Theme>
+            <ig:Office2013Theme StyleMicrosoftControls="True" />
+        </ig:ThemeManager.Theme>
+        <Grid Margin="20">
+            <Grid>
+                <Border BorderThickness="1" Background="White" BorderBrush="#FF5F9BE4">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="20" ShadowDepth="0" Opacity="0.4"/>
+                    </Border.Effect>
+                </Border>
+            </Grid>
+            <Grid x:Name="containerMain">
+                <Grid x:Name="containerContent">
+                    <Image Source="Resources/motionunlocker-01.png" Width="708" Height="241" Margin="1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <Grid Margin="20,257,20,20">
+                        <Image x:Name="picUserFace" HorizontalAlignment="Left" Height="120" Margin="10,10,0,0" VerticalAlignment="Top" Width="120"/>
+                        <Label x:Name="lblUserName" HorizontalContentAlignment="Center" Content="{}{ Username }" HorizontalAlignment="Left" Margin="10,135,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.553,0.519" Width="120" FontSize="15"/>
+                        <Grid x:Name="framePasswordRequired" Margin="135,0,10,11" Visibility="Collapsed">
+                            <TextBlock Margin="10,10,10,0" VerticalAlignment="Top" TextWrapping="WrapWithOverflow" FontSize="13">
+                            In order to enable motion login, please enter your login credential here. After that, you can use motion to log into the current user at login screen.
+                            </TextBlock>
+                            <Label Content="Username" HorizontalAlignment="Left" Margin="10,63,0,0" VerticalAlignment="Top"/>
+                            <Label x:Name="lblCurrentUser" Content="{}{Username}" HorizontalAlignment="Left" Margin="78,63,0,0" VerticalAlignment="Top"/>
+                            <Label Content="Password" HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top"/>
+                            <PasswordBox x:Name="txtCurrentPass" HorizontalAlignment="Left" Margin="78,98,0,0" VerticalAlignment="Top" Width="131"/>
+                            <Button x:Name="btnSaveCredential" Content="Save Credential" HorizontalAlignment="Left" Margin="10,141,0,0" VerticalAlignment="Top" Width="121" Click="btnSaveCredential_Click"/>
+                        </Grid>
+                        <Grid x:Name="frameMotionRequired" Margin="135,0,10,11" Visibility="Collapsed">
+                            <TextBlock Margin="10,10,10,0" VerticalAlignment="Top" TextWrapping="WrapWithOverflow" FontSize="13">
+                            You haven't recorded any unlock motion gestures. Molocker will work as soon as you record your gesture.
+                            </TextBlock>
+                            <Button x:Name="btnStartRecording" Content="Start recording" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" Width="138" Click="btnStartRecording_Click"/>
+                            <TextBlock Margin="10,96,10,0" VerticalAlignment="Top" TextWrapping="WrapWithOverflow" FontSize="13">
+                            You have already assigned your login credential. If you have changed your login password, click the button below.
+                            </TextBlock>
+                            <Button x:Name="btnChangeCredential" Content="Change my login credential" HorizontalAlignment="Left" Margin="10,141,0,0" VerticalAlignment="Top" Width="177" Click="btnChangeCredential_Click"/>
+                            <Button x:Name="btnDeleteCredential" Content="Delete credential" HorizontalAlignment="Left" Margin="192,141,0,0" VerticalAlignment="Top" Width="126" Click="btnDeleteCredential_Click"/>
+                        </Grid>
+                        <Grid x:Name="frameMotionOK" Margin="135,0,10,11">
+                            <TextBlock Margin="10,10,10,0" VerticalAlignment="Top" TextWrapping="WrapWithOverflow" FontSize="13">
+                            You have already assigned your login gesture and login credential. You can change your motion gesture or change your credential.
+                            </TextBlock>
+                            <Button x:Name="btnChangeGesture" Content="Change gesture" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top" Width="120" Click="btnChangeGesture_Click"/>
+                            <Button x:Name="btnClearGesture" Content="Clear gesture" HorizontalAlignment="Left" Margin="135,57,0,0" VerticalAlignment="Top" Width="100" Click="btnClearGesture_Click"/>
+                            <Button x:Name="btnChangeCredential2" Content="Change credential" HorizontalAlignment="Left" Margin="240,57,0,0" VerticalAlignment="Top" Width="123" Click="btnChangeCredential2_Click"/>
+                        </Grid>
+                    </Grid>
+                    <Label x:Name="lblExit" Content="CLOSE" HorizontalAlignment="Left" Margin="655,10,0,0" VerticalAlignment="Top" Foreground="White" Background="#CC000000" MouseDown="lblExit_MouseDown" Loaded="lblExit_Loaded"/>
+                </Grid>
+            </Grid>
+        </Grid>
+        
+    </Grid>
+</Window>
